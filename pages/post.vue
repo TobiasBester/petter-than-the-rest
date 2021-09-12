@@ -1,11 +1,15 @@
 <template>
   <div>
-    <h1>Hello there Mr Nuxt</h1>
+    <h1>Post a Pet</h1>
   </div>
 </template>
 
 <script>
-
 export default {
+  name: 'post',
 }
 </script>
+
+<style scoped>
+
+</style>
