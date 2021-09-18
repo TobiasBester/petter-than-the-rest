@@ -7,5 +7,8 @@
 <script>
 
 export default {
+  head: () => ({
+    title: 'PTTR Home'
+  })
 }
 </script>

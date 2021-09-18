@@ -7,8 +7,8 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/post">
-          Post
+        <b-nav-item to="/post/create">
+          Post your Pet
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
