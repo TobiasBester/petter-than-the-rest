@@ -3,7 +3,11 @@ const CAT_URL = 'https://dog.ceo/api/breeds/image/random'
 // const CAT_URL = `https://api.thecatapi.com/v1/images/search?api_key=${process.env.CAT_API_KEY}`
 
 export const getPetImageCalls = ($axios, numPets) => {
-  return Array.from(Array(numPets), () => $axios.get(getRandomPetUrl()))
+  return Array.from(Array(numPets), () => getPetImageCall($axios))
+}
+
+export const getPetImageCall = ($axios) => {
+  return $axios.get(getRandomPetUrl())
 }
 
 const getRandomPetUrl = () => {

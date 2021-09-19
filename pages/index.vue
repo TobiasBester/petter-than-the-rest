@@ -34,7 +34,7 @@ export default {
 
       return { posts }
     } catch (e) {
-      error({ statusCode: 503, message: 'Unable to find events at this time. Please try again.' })
+      error({ statusCode: 503, message: 'Unable to load posts at this time. Please try again.' })
     }
   },
   head: () => ({
