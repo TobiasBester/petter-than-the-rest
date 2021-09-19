@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": 5928101,
+      "user": {
+        "id": "abc123",
+        "name": "Michael"
+      },
+      "pet": {
+        "id": "abc126",
+        "name": "Scruffy"
+      },
+      "description": "Digging in!",
+      "numPets": 50,
+      "datePosted": "2021-01-03T21:54:00.000Z"
+    },
+    {
+      "id": 322345,
+      "user": {
+        "id": "abc121",
+        "name": "Bichael"
+      },
+      "pet": {
+        "id": "abc120",
+        "name": "Whiskey"
+      },
+      "description": "Pawesome!",
+      "numPets": 10213,
+      "datePosted": "2021-05-03T21:54:00.000Z"
+    },
+    {
+      "id": 5928121,
+      "user": {
+        "id": "abx123",
+        "name": "Micycle"
+      },
+      "pet": {
+        "id": "abc121",
+        "name": "Toto"
+      },
+      "description": "What a dog!",
+      "numPets": 25,
+      "datePosted": "2021-09-03T21:54:00.000Z"
+    }
+  ]
+}
