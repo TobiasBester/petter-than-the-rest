@@ -1,8 +1,9 @@
 <template>
   <div>
+    <back-button />
     <h2>Post of {{ post.pet.name }} from {{ post.user.name }}</h2>
     <hr>
-    <b-row>
+    <b-row align-v="center">
       <b-col md="6">
         <strong>{{ post.description }}</strong>
       </b-col>
@@ -10,9 +11,7 @@
         {{ parsedPostDate }}
       </b-col>
       <b-col>
-        <b-btn>
-          Pets Received: {{ post.numPets }}
-        </b-btn>
+        <pet-button :num-pets="post.numPets" />
       </b-col>
     </b-row>
     <b-img-lazy
@@ -24,19 +23,15 @@
 </template>
 
 <script>
-import { extractPetImageFromResponse, getPetImageCall } from '~/utils/http'
+import { mapState } from 'vuex'
+import PetButton from '~/components/posts/PetButton'
 
 export default {
   name: 'SelectedPost',
-  async asyncData ({ $axios, error, params }) {
+  components: { PetButton },
+  async fetch ({ error, params, store }) {
     try {
-      const { data } = await $axios.get(`http://localhost:3001/posts/${params.id}`)
-      const post = data
-
-      const imgResult = await getPetImageCall($axios)
-      post.postImg = extractPetImageFromResponse(imgResult)
-
-      return { post }
+      await store.dispatch('posts/fetchPost', params.id)
     } catch (e) {
       error({ statusCode: 503, message: 'Unable to fetch post.' })
     }
@@ -57,7 +52,10 @@ export default {
     parsedPostDate () {
       const eventDate = new Date(this.post.datePosted)
       return eventDate.toLocaleString()
-    }
+    },
+    ...mapState({
+      post: state => state.posts.current
+    })
   }
 }
 </script>

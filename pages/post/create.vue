@@ -1,6 +1,11 @@
 <template>
   <div>
     <h1>Post a Pet</h1>
+    <b-container>
+      <b-col>
+        <b-form-timepicker />
+      </b-col>
+    </b-container>
   </div>
 </template>
 

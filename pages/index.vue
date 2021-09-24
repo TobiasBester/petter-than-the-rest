@@ -13,26 +13,16 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
 import PostCard from '~/components/posts/PostCard'
-import { extractPetImageFromResponse, getPetImageCalls } from '~/utils/http'
 
 export default {
   components: {
     PostsPostCard: PostCard
   },
-  async asyncData ({ $axios, error }) {
+  async fetch ({ store, error }) {
     try {
-      const { data } = await $axios.get('http://localhost:3001/posts')
-      const posts = data
-
-      const imageCalls = getPetImageCalls($axios, posts.length)
-      const imageResults = await Promise.all(imageCalls)
-      imageResults.forEach((imgResult, idx) => {
-        posts[idx].postImg = extractPetImageFromResponse(imgResult)
-      })
-
-      return { posts }
+      await store.dispatch('posts/fetchPosts')
     } catch (e) {
       error({ statusCode: 503, message: 'Unable to load posts at this time. Please try again.' })
     }
@@ -40,5 +30,10 @@ export default {
   head: () => ({
     title: 'PTTR Home',
   }),
+  computed: {
+    ...mapState({
+      posts: state => state.posts.posts,
+    }),
+  },
 }
 </script>

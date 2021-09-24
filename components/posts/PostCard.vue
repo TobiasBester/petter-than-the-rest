@@ -15,7 +15,7 @@
         <b-card-body :title="post.pet.name">
           <b-card-text>
             <h6 class="text-primary">
-              {{ post.user.name }}
+              Posted by {{ post.user.name }}
             </h6>
             <p>
               {{ post.description }}
@@ -23,14 +23,12 @@
           </b-card-text>
         </b-card-body>
         <b-card-footer>
-          <b-row class="align-content-center justify-content-between">
+          <b-row align-v="center" class="justify-content-between">
             <b-col>
               {{ parsedPostDate }}
             </b-col>
             <b-col>
-              <b-btn>
-                Pets Received: {{ post.numPets }}
-              </b-btn>
+              <posts-pet-button :num-pets="post.numPets" />
             </b-col>
           </b-row>
         </b-card-footer>
@@ -40,8 +38,14 @@
 </template>
 
 <script>
+
+import PetButton from '~/components/posts/PetButton'
+
 export default {
   name: 'PostCard',
+  components: {
+    PostsPetButton: PetButton
+  },
   props: {
     post: {
       type: Object,
