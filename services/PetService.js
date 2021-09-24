@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const DATA_API_URL = 'http://my-json-server.typicode.com/TobiasBester/petter-than-the-rest'
+const DATA_API_URL = 'https://my-json-server.typicode.com/TobiasBester/petter-than-the-rest'
 const DOG_URL = 'https://dog.ceo/api/breeds/image/random'
 const CAT_URL = `https://api.thecatapi.com/v1/images/search?api_key=${process.env.NUXT_ENV_CAT_API_KEY}`
 
