@@ -10,6 +10,9 @@
         <b-nav-item to="/post/create">
           Post your Pet
         </b-nav-item>
+        <b-nav-item to="/profile">
+          Your Profile
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

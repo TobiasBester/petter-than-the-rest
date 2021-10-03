@@ -38,7 +38,6 @@
 </template>
 
 <script>
-
 import PetButton from '~/components/posts/PetButton'
 
 export default {
